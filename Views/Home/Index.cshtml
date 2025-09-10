@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<h1>@ViewData["Message"]</h1>
+<p>This is your first C# ASP.NET Core web application.</p>
+<p><a href="/Home/About">Go to About Page</a></p>
+
+<hr />
+
+<h2>Simple Calculator</h2>
+
+<form method="post" asp-action="Index" asp-controller="Home">
+    <div>
+        <label>Number 1:</label>
+        <input type="number" step="any" name="number1" required />
+    </div>
+    <div>
+        <label>Number 2:</label>
+        <input type="number" step="any" name="number2" required />
+    </div>
+    <div>
+        <label>Operation:</label>
+        <select name="operation">
+            <option value="Add">Add</option>
+            <option value="Subtract">Subtract</option>
+            <option value="Multiply">Multiply</option>
+            <option value="Divide">Divide</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Calculate</button>
+    </div>
+</form>
+
+@if (ViewData["Result"] != null)
+{
+    <h3>Result: @ViewData["Result"]</h3>
+}
